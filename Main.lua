@@ -645,6 +645,27 @@ PlayerTab:CreateToggle({
     end
 })
 
+PlayerTab:CreateSection("Super Strength")
+
+PlayerTab:CreateToggle({
+    Name = "Super Strength",
+    CurrentValue = false,
+    Callback = function(val)
+        HOption.superStrength = val
+    end
+})
+
+local playerStrengthSlider = PlayerTab:CreateSlider({
+    Name = "Strength Value",
+    Range = {100, 10000},
+    Increment = 100,
+    Suffix = "",
+    CurrentValue = 1000,
+    Callback = function(val)
+        HOption.strength = val
+    end
+})
+
 PlayerTab:CreateSection("Safe Reset")
 
 PlayerTab:CreateToggle({
@@ -1233,6 +1254,14 @@ GrabTab:CreateToggle({
 })
 
 GrabTab:CreateToggle({
+    Name = "Radioactive Grab",
+    CurrentValue = false,
+    Callback = function(val)
+        HOption.radioactiveGrab = val
+    end
+})
+
+GrabTab:CreateToggle({
     Name = "Noclip Grab",
     CurrentValue = false,
     Callback = function(val)
@@ -1249,14 +1278,14 @@ GrabTab:CreateToggle({
 })
 
 GrabTab:CreateToggle({
-    Name = "Super Strength",
+    Name = "Super Strength Grab",
     CurrentValue = false,
     Callback = function(val)
         HOption.superStrength = val
     end
 })
 
-local strengthSlider = GrabTab:CreateSlider({
+local grabStrengthSlider = GrabTab:CreateSlider({
     Name = "Strength Value",
     Range = {100, 10000},
     Increment = 100,
@@ -1304,14 +1333,6 @@ GrabTab:CreateToggle({
     CurrentValue = false,
     Callback = function(val)
         HOption.ultraGrab = val
-    end
-})
-
-GrabTab:CreateToggle({
-    Name = "Radioactive Grab",
-    CurrentValue = false,
-    Callback = function(val)
-        HOption.radioactiveGrab = val
     end
 })
 
